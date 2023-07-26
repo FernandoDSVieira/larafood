@@ -28,22 +28,23 @@
                     <tr>
                         <th>Nome</th>
                         <th>Preços</th>
-                        <th width="50">Ações</th>
+                        <th width="100">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($plans as $plan)
-                        <tr>
-                            <td>
-                                {{ $plan->name }}
-                            </td>
-                            <td>
-                                 {{ number_format($plan->price, 2, ',', '.') }}
-                            </td>
-                            <td style="width=10px;">
-                               <a href="{{ route('plans.show', $plan->url)}}" class="btn btn-warning">VER</a>
-                            </td>
-                        </tr>
+                 @foreach ($plans as $plan)
+                    <tr>
+                        <td>
+                            {{ $plan->name }}
+                        </td>
+                        <td>
+                            {{ number_format($plan->price, 2, ',', '.') }}
+                        </td>
+                        <td style="width=10px;">
+                            <a href="{{ route('plans.edit', $plan->url)}}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('plans.show', $plan->url)}}" class="btn btn-warning">VER</a>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
